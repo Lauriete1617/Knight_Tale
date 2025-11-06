@@ -1,6 +1,6 @@
 # 🏰 Knight Tale
 
-Um jogo em desenvolvimento no Godot, criado em colaboração por [@Laura](https://github.com/laura-dev), [@Marilu](https://github.com/Marilu-LEM) e [@Eric](https://github.com/EricBroges)
+Um jogo em desenvolvimento no Godot, criado em colaboração por [@Laura](https://github.com/Lauriete1617), [@Marilu](https://github.com/Marilu-LEM) e [@Eric](https://github.com/EricBroges)
 
 ## 🎮 Sobre o jogo
 Aventura em pixel art com foco em combate e narrativa divertida, satirizando clichês do gênero.
