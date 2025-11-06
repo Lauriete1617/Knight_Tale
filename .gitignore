@@ -1,1 +1,12 @@
-.import
+# Pastas de exportação e importação
+.export/
+.import/
+*.translation
+
+# Arquivos temporários e logs
+*.tmp
+*.log
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
