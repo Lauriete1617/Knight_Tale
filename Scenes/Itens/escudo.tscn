@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://8qnqlep76si8"]
+
+[ext_resource type="Texture2D" uid="uid://b60u5mu4y2lgs" path="res://Assets/Itens/Escudo.png" id="1_cguib"]
+[ext_resource type="Script" uid="uid://cqb1v4une5wet" path="res://Scripts/Itens/escudo.gd" id="1_ukq83"]
+[ext_resource type="AudioStream" uid="uid://d0r5fqr1girr3" path="res://Assets/SFX/tap.wav" id="3_c2ubg"]
+[ext_resource type="AudioStream" uid="uid://d34b6vamex8cn" path="res://Assets/SFX/Escudo.wav" id="4_ooq0t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ukq83"]
+radius = 20.09975
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2ubg"]
+atlas = ExtResource("1_cguib")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooq0t"]
+atlas = ExtResource("1_cguib")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a5ly"]
+atlas = ExtResource("1_cguib")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eexj"]
+atlas = ExtResource("1_cguib")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdc88"]
+atlas = ExtResource("1_cguib")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eu35"]
+atlas = ExtResource("1_cguib")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1m8s5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2ubg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooq0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a5ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eexj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdc88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eu35")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Escudo" type="Area2D"]
+z_index = 5
+collision_layer = 8
+script = ExtResource("1_ukq83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ukq83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1m8s5")
+autoplay = "default"
+frame_progress = 0.22000344
+
+[node name="som equipar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c2ubg")
+bus = &"SFX"
+
+[node name="som defesa" type="AudioStreamPlayer2D" parent="." groups=["Itens"]]
+stream = ExtResource("4_ooq0t")
+volume_db = -29.714
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

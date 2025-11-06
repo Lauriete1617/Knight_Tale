@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://chs8x20ug32e"]
+
+[ext_resource type="Script" uid="uid://bwj4k7ihq2x07" path="res://Scripts/Itens/moeda.gd" id="1_nkxsh"]
+[ext_resource type="Texture2D" uid="uid://c5j88uilhbn8i" path="res://Assets/Itens/Moeda.png" id="1_q2npr"]
+[ext_resource type="AudioStream" uid="uid://c126d7yxum5hk" path="res://Assets/SFX/coin.wav" id="3_58fel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkxsh"]
+atlas = ExtResource("1_q2npr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58fel"]
+atlas = ExtResource("1_q2npr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p3et"]
+atlas = ExtResource("1_q2npr")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq2og"]
+atlas = ExtResource("1_q2npr")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0ki0"]
+atlas = ExtResource("1_q2npr")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6utaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkxsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58fel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p3et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq2og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0ki0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhfod"]
+
+[node name="Moeda" type="Area2D" groups=["Itens"]]
+script = ExtResource("1_nkxsh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6utaw")
+autoplay = "default"
+frame_progress = 0.6671643
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fhfod")
+
+[node name="som moeda" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_58fel")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

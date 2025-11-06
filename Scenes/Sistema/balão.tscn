@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvvx5lxr6868o"]
+
+[ext_resource type="Texture2D" uid="uid://cgked551sxiei" path="res://Assets/Estética/Balões.png" id="1_ah2ny"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_808pk"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qiqv"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bgee"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jxhy"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plg5r"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj6h4"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjjxv"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e83e"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtf5c"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbc6u"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ijw2"]
+atlas = ExtResource("1_ah2ny")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnqfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_808pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qiqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bgee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jxhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plg5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj6h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjjxv")
+}],
+"loop": true,
+"name": &"Fala",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e83e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtf5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbc6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ijw2")
+}],
+"loop": true,
+"name": &"Narração",
+"speed": 4.0
+}]
+
+[node name="Balão" type="Node"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gnqfq")
+animation = &"Fala"
+frame_progress = 0.06379624

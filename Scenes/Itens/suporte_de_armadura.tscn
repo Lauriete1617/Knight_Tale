@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://sbdh7q383nv1"]
+
+[ext_resource type="Texture2D" uid="uid://cjm4l1sgxs424" path="res://Assets/Itens/Suporte armadura.png" id="1_hes44"]
+[ext_resource type="Script" uid="uid://br7ybq41fkje1" path="res://Scripts/Itens/suporte_de_armadura.gd" id="1_ojvgn"]
+[ext_resource type="AudioStream" uid="uid://dh7l0v2iq7a2x" path="res://Assets/SFX/Vestir armadura.wav" id="3_ibuyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojvgn"]
+size = Vector2(40, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibuyy"]
+atlas = ExtResource("1_hes44")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36043"]
+atlas = ExtResource("1_hes44")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yi2i4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibuyy")
+}],
+"loop": true,
+"name": &"Com Armadura",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36043")
+}],
+"loop": true,
+"name": &"Sem Armadura",
+"speed": 5.0
+}]
+
+[node name="Suporte de armadura" type="Area2D"]
+z_index = 5
+collision_layer = 8
+script = ExtResource("1_ojvgn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -11)
+shape = SubResource("RectangleShape2D_ojvgn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.500002, -10.5)
+scale = Vector2(1.4062501, 1.65625)
+sprite_frames = SubResource("SpriteFrames_yi2i4")
+animation = &"Com Armadura"
+
+[node name="som vestir" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ibuyy")
+volume_db = -15.357
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw3sced5yp8ie"]
+
+[ext_resource type="Script" uid="uid://cxm3nhjc7f0yn" path="res://Scripts/Sistema/killzone.gd" id="1_fxds8"]
+[ext_resource type="AudioStream" uid="uid://blvch7v4xaxie" path="res://Assets/SFX/hurt.wav" id="1_sq28l"]
+
+[node name="Killzone" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_fxds8")
+
+[node name="som morte" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_sq28l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

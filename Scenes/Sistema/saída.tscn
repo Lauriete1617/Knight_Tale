@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://2psr0aek86gd"]
+
+[ext_resource type="Texture2D" uid="uid://b84twrxtjxx4w" path="res://Assets/Estética/Saída mágica.png" id="1_nre70"]
+[ext_resource type="Script" path="res://Scripts/Sistema/saída.gd" id="1_qghqp"]
+[ext_resource type="AudioStream" uid="uid://hllxbw1kd1cq" path="res://Assets/SFX/power_up.wav" id="3_l7peg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qghqp"]
+atlas = ExtResource("1_nre70")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7peg"]
+atlas = ExtResource("1_nre70")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axqnn"]
+atlas = ExtResource("1_nre70")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kuc4"]
+atlas = ExtResource("1_nre70")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_astwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qghqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7peg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axqnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kuc4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Saída" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_qghqp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7176471)
+position = Vector2(-15, -13)
+scale = Vector2(2.0625, 2)
+sprite_frames = SubResource("SpriteFrames_astwj")
+autoplay = "default"
+frame_progress = 0.18073583
+
+[node name="som vencer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(22, -3)
+stream = ExtResource("3_l7peg")
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
